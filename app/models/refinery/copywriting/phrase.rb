@@ -5,6 +5,7 @@ module Refinery
       belongs_to :page, :class_name => 'Refinery::Page'
       translates :value if self.respond_to?(:translates)
       validates :name, :presence => true
+      attr_accessible :phrase_type, :scope, :name
 
       default_scope { order([:scope, :name]) }
 
