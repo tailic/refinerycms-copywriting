@@ -3,9 +3,9 @@ module Refinery
     class Phrase < Refinery::Core::BaseModel
 
       belongs_to :page, :class_name => 'Refinery::Page'
+      attr_accessible :phrase_type, :scope, :name
       translates :value if self.respond_to?(:translates)
       validates :name, :presence => true
-      attr_accessible :phrase_type, :scope, :name
 
       default_scope { order([:scope, :name]) }
 
